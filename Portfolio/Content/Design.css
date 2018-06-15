@@ -1,0 +1,83 @@
+﻿body {
+    margin: 0;
+    overflow-y: hidden;
+}
+
+#design-index {
+    background-color: #000000;
+}
+
+.btn-menu {
+    background: transparent;
+    border: none;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    width: 10%;
+}
+
+.btn-menu:hover {
+    cursor: pointer;
+}
+
+.btn-menu-icon {
+    display: inline-block;
+    height: 2rem;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 1.5rem;
+}
+
+.menu-icon-lines {
+    background-color: #ffffff;
+    display: inline-block;
+    height: 100%;
+    width: 2px;
+}
+
+.menu-icon-lines:after,
+.menu-icon-lines:before {
+    background-color: #ffffff;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 2px;
+}
+
+.menu-icon-lines:after {
+    right: 0;
+}
+
+.menu-icon-lines:before {
+    left: 0;
+}
+
+.btn-menu-text {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 15px;
+    transition: all ease-in-out 0.5s;
+    will-change: auto;
+    -webkit-transition: all ease-in-out 0.5s;
+}
+
+.btn-menu-text:hover {
+    color: red;
+    transition: all ease-in-out 0.5s;
+    -webkit-transition: all ease-in-out 0.5s;
+}
+
+.menu-open {
+    display: block;
+}
+
+.menu-close {
+    display: none;
+}
+
+.menu-design {
+    display: none;
+}

@@ -1,0 +1,25 @@
+﻿@{
+    Layout = null;
+}
+
+@Styles.Render("~/Content/css")
+@Styles.Render("~/Content/designs")
+
+<div class="bg-full" id="design-index">
+    <button class="btn-menu" type="button" id="btn-menu">
+        <span class="btn-menu-icon">
+            <span class="menu-icon-lines"></span>
+        </span>
+        <span class="btn-menu-label">
+            <span class="btn-menu-text menu-open">Menu</span>
+            <span class="btn-menu-text menu-close">Close</span>
+        </span>
+    </button>
+    <div class="menu-design">
+        <a href="~/Views/Design/Blackjack/" class="link-undecorated">Blackjack Table</a>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
