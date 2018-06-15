@@ -24,10 +24,11 @@ namespace Portfolio
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/designs").Include(
-                      "~/Content/Blackjack.css"));
+                      "~/Content/Blackjack.css",
+                      "~/Content/Design.css"));
         }
     }
 }
