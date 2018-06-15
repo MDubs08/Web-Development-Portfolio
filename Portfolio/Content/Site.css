@@ -1,1 +1,15 @@
 ﻿
+.bg-full {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.link-undecorated,
+.link-undecorated:hover {
+    text-decoration: none;
+}
