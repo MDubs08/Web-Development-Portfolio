@@ -171,6 +171,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RDDBViewEngine.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DesignController.cs" />
@@ -188,6 +189,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Design.css" />
     <Content Include="Content\Images\playing-cards-background.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -251,10 +253,10 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Design\BlackjackTable.cshtml" />
-    <Content Include="Views\Design\_DiscardDeck.cshtml" />
-    <Content Include="Views\Design\_ChipTray.cshtml" />
-    <Content Include="Views\Design\_DealerShoe.cshtml" />
-    <Content Include="Views\Design\_BlackjackText.cshtml" />
+    <Content Include="Views\Design\Blackjack\_DiscardDeck.cshtml" />
+    <Content Include="Views\Design\Blackjack\_ChipTray.cshtml" />
+    <Content Include="Views\Design\Blackjack\_DealerShoe.cshtml" />
+    <Content Include="Views\Design\Blackjack\_BlackjackText.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -264,6 +266,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Design\Blackjack\_PlayerDisplay.cshtml" />
+    <Content Include="Views\Design\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
