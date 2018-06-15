@@ -5,15 +5,8 @@ body {
     overflow-y: hidden;
 }
 
-.bg-full {
+#blackjack {
     background-color: #808080;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: inline-block;
-    height: 100%;
-    position: relative;
-    width: 100%;
 }
 
 .game-table {
@@ -228,6 +221,7 @@ body {
     display: flex;
     position: relative;
     vertical-align: middle;
+    width: 95%
 }
 
 .slider {
@@ -237,7 +231,7 @@ body {
     margin: 0;
     outline: none;
     padding: 0;
-    width: calc(100% - (73px));
+    width: 100%;
     -webkit-appearance: none;
 }
 
