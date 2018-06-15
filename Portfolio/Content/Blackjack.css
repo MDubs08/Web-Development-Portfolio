@@ -1,0 +1,691 @@
+﻿
+/*#region Main*/
+body {
+    margin: 0;
+    overflow-y: hidden;
+}
+
+.bg-full {
+    background-color: #808080;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.game-table {
+    background: linear-gradient(0deg, #48352c, #5B4337, #5B4337, #48352c);
+    border-radius: 25px 25px 50% 50%;
+    box-shadow: 5px -5px 10px 20px rgba(30, 30, 30, 0.3);
+    display: inline-block;
+    height: 80%;
+    margin-top: 2%;
+    padding: 2%;
+    padding-top: 1%;
+    position: relative;
+    width: 80%;
+}
+
+.game-mat {
+    background: #019138;
+    border-radius: 25px 25px 50% 50%;
+    box-shadow: inset 0px 0px 5px 5px rgba(30, 30, 30, 0.3), 0px 0px 10px 5px rgba(30, 30, 30, 0.3);
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+/*#endregion*/
+
+/*#region Game Mat Text*/
+.mat-text {
+    position: relative;
+    top: 25%;
+}
+
+.mat-items {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.insurance {
+    background: #1a2424;
+    border: 5px solid #ffffff;
+    border-radius: 25px;
+    width: 70%;
+}
+
+#game-title,
+#game-rules,
+#insurance-text {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#game-title {    
+    font-size: 36px;
+}
+
+#game-payout {
+    color: #ffd800;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+#game-rules {
+    font-size: 28px;
+}
+
+#insurance-text {
+    font-size: 28px;
+    padding: 0;
+    margin: 0;
+}
+
+.player-bet {
+    border: 5px solid #ffffff;
+    border-radius: 10%;
+    height: 120px;
+    position: absolute;
+    width: 85px;
+}
+
+.player-bets {
+    display: flex;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.player-bet:nth-child(1) {
+    left: 10%;
+    top: 62%;
+    transform: rotate(33deg);
+}
+
+.player-bet:nth-child(2) {
+    left: 27%;
+    top: 77%;
+    transform: rotate(12deg);
+}
+
+.player-bet:nth-child(3) {
+    left: 48%;
+    top: 82%;
+}
+
+.player-bet:nth-child(4) {
+    right: 27%;
+    top: 77%;
+    transform: rotate(-12deg);
+}
+
+.player-bet:nth-child(5) {
+    right: 10%;
+    top: 62%;
+    transform: rotate(-33deg);
+}
+/*#endregion*/
+
+/*#region Player Spots*/
+.player-spot {
+    border-radius: 0px 0px 35% 35%;
+    display: flex;
+    height: 4%;
+    position: absolute;
+    width: 15%;
+}
+
+.player-spot:nth-child(1) {
+    bottom: 20.1%;
+    left: 3.5%;
+    transform: rotate(35deg);
+}
+
+.player-spot:nth-child(2) {
+    bottom: 4.75%;
+    left: 22%;
+    transform: rotate(14deg);
+}
+
+.player-spot:nth-child(3) {
+    bottom: 0.35%;
+    left: 43.5%;
+}
+
+.player-spot:nth-child(4) {
+    bottom: 4.75%;
+    right: 22%;
+    transform: rotate(-13deg);
+}
+
+.player-spot:nth-child(5) {
+    bottom: 20.1%;
+    right: 3.5%;
+    transform: rotate(-35deg);
+}
+
+.cup-holder {
+    background: #d3a73f;
+    border: 3px solid rgba(30, 30, 30, 0.9);
+    border-radius: 50% 50%;
+    box-shadow: inset 5px 5px 2px 1px rgba(168, 130, 43, 0.9);
+    height: 25px;
+    width: 25px;
+}
+
+.cup-left {
+    margin-right: 2%;
+}
+
+.cup-right {
+    margin-left: 2%;
+}
+
+.player-chip-tray {
+    background: linear-gradient(#141414, #808080);
+    border: 1px solid #000000;
+    border-radius: 0px 0px 35% 35%;
+    box-shadow: inset 5px -5px 5px 10px rgba(30, 30, 30, 0.3);
+    height: 100%;
+    width: 80%;
+}
+/*#endregion*/
+
+/*#region Player Action Box*/
+.player-display {
+    background: #019138;
+    border: 3px solid #48352c;
+    border-radius: 25px;
+    bottom: 1%;
+    height: 15%;
+    left: 1%;
+    position: absolute;
+    text-align: center;
+    width: 35%;
+}
+
+.player-display .row {
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.player-detail {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.bet-slider {
+    display: flex;
+    position: relative;
+    vertical-align: middle;
+}
+
+.slider {
+    background: #d7dcdf;
+    border-radius: 5px;
+    height: 10px;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    width: calc(100% - (73px));
+    -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+    background: #2c3e50;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 20px;
+    transition: background .15s ease-in-out;
+    width: 20px;
+    -webkit-appearance: none;
+}
+
+.slider::-webkit-slider-thumb:hover,
+.slider:active::-webkit-slider-thumb {
+    background: #1abc9c;
+}
+
+.slider:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), 0 0 0 6px #1abc9c;
+}
+
+.slider-value {
+    background: #2c3e50;
+    border-radius: 5px;
+    bottom: 4px;
+    color: #ffffff;
+    display: inline-block;
+    left: 5px;
+    line-height: 10px;
+    margin-left: 8px;
+    padding: 5px 5px;
+    position: relative;
+    text-align: center;
+    width: 50px;
+}
+
+.slider-value:after {
+    border-bottom: 8px solid transparent;
+    border-radius: 5px;
+    border-right: 8px solid #2c3e50;
+    border-top: 7px solid transparent;
+    content: '';
+    height: 15px;
+    left: -7px;
+    position: absolute;
+    top: 2.5px;
+    width: 0;
+}
+/*#endregion*/
+
+/*#region  Discard Deck*/
+.discard-deck,
+.discard-card {
+    box-shadow: -5px 3px 10px 1px rgba(30, 30, 30, 0.3);
+    background: url(Images/playing-cards-background.jpg);
+    border: 1px solid #000000;
+    border-radius: 5px;
+    height: 100px;
+    position: absolute;
+    width: 75px;
+}
+
+.discard-deck {
+    left: 5%;
+    top: 5%;
+}
+
+.discard-card:nth-child(1) {
+    left: 1%;
+    top: 1%;
+}
+
+.discard-card:nth-child(2) {
+    left: 4%;
+    top: 4%;
+}
+
+.discard-card:nth-child(3) {
+    left: 6%;
+    top: 6%;
+}
+/*#endregion*/
+
+/*#region Chip Tray*/
+.chip-tray {
+    box-shadow: 3px 3px 10px 5px rgba(30, 30, 30, 0.3);
+    border: 1px solid #000000;
+    display: flex;
+    height: 15%;
+    left: 37.5%;
+    position: absolute;
+    top: 1%;
+    width: 25%;
+}
+
+.chip-holder {
+    background: linear-gradient(#48352c, #1a2424);
+    box-shadow: inset -5px 5px 5px 5px rgba(30, 30, 30, 0.5);
+    border: 1px solid #48352c;
+    height: 100%;
+    position: relative;
+    width: 10%;
+}
+
+.tray-chip {
+    backface-visibility: hidden;
+    border: 2px dashed white;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 10px;
+    height: 30px;
+    left: 2px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    transform: perspective(3000px) rotateX(60deg) rotateZ(130deg);
+    transition: all .5s ease;
+    width: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.tray-chip:nth-child(1) {
+    top: -5%;
+}
+
+.tray-chip:nth-child(2) {
+    top: 0%;
+}
+
+.tray-chip:nth-child(3) {
+    top: 5%;
+}
+
+.tray-chip:nth-child(4) {
+    top: 10%;
+}
+
+.tray-chip:nth-child(5) {
+    top: 15%;
+}
+
+.tray-chip:nth-child(6) {
+    top: 20%;
+}
+
+.tray-chip:nth-child(7) {
+    top: 25%;
+}
+
+.tray-chip:nth-child(8) {
+    top: 30%;
+}
+
+.tray-chip:nth-child(9) {
+    top: 35%;
+}
+
+.tray-chip:nth-child(10) {
+    top: 40%;
+}
+
+.tray-chip:nth-child(11) {
+    top: 45%;
+}
+
+.tray-chip:nth-child(12) {
+    top: 50%;
+}
+
+.tray-chip:nth-child(13) {
+    top: 55%;
+}
+
+.tray-chip:nth-child(14) {
+    top: 60%;
+}
+
+.tray-chip:nth-child(15) {
+    top: 65%;
+}
+
+.tray-chip:nth-child(16) {
+    top: 70%;
+}
+
+.tray-chip.black {
+    background: #222222;
+    box-shadow: -1px 1px 0px #222222, -2px 2px 0px #222222, -3px 3px 0px #222222, -4px 4px 0px #222222, -5px 5px 0px #222222, -6px 6px 10px #222222;
+}
+
+.tray-chip.green {
+    background: #008000;
+    box-shadow: -1px 1px 0px #008000, -2px 2px 0px #008000, -3px 3px 0px #008000, -4px 4px 0px #008000, -5px 5px 0px #008000, -6px 6px 10px #008000;
+}
+
+.tray-chip.blue {
+    background: #000099;
+    box-shadow: -1px 1px 0px #000099, -2px 2px 0px #000099, -3px 3px 0px #000099, -4px 4px 0px #000099, -5px 5px 0px #000099, -6px 6px 10px #000099;
+}
+
+.tray-chip.red {
+    background: #800000;
+    box-shadow: -1px 1px 0px #800000, -2px 2px 0px #800000, -3px 3px 0px #800000, -4px 4px 0px #800000, -5px 5px 0px #800000, -6px 6px 10px #800000;
+}
+
+.tray-chip.white {
+    background: #dddddd;
+    box-shadow: -1px 1px 0px #dddddd, -2px 2px 0px #dddddd, -3px 3px 0px #dddddd, -4px 4px 0px #dddddd, -5px 5px 0px #dddddd, -6px 6px 10px #dddddd;
+}
+/*#endregion*/
+
+/*#region Dealer Shoe*/
+
+.dealer-shoe {
+    box-shadow: -5px 3px 10px 1px rgba(30, 30, 30, 0.5);
+    border: 1px solid #000000;
+    border-radius: 2px;
+    height: 15%;
+    right: 5%;
+    position: absolute;
+    top: 10%;
+    transform: rotate(-45deg);
+    width: 12%;
+}
+
+.shoe-front {
+    background-color: #1a2424;
+    box-shadow: -1px 2px 10px 5px rgba(30, 30, 30, 0.3);
+    height: 100%;
+    position: absolute;
+    right: 100%;
+    width: 20%;
+}
+
+.shoe-top {
+    background: linear-gradient(to right, #808080, #141414);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 100%;
+}
+
+#shoe-text {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 25%;
+    transform: rotate(90deg);
+}
+
+.top-front {
+    background: url(Images/playing-cards-background.jpg);
+    border-radius: 0px 50px 50px 0px;
+    box-shadow: inset -5px 0px rgba(30, 30, 30, 0.4);
+    height: 80%;
+    left: -2px;
+    position: absolute;
+    top: 10%;
+    width: 17.5%;
+}
+
+.top-back {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    height: 80%;
+    left: 30%;
+    position: absolute;
+    top: 10%;
+    width: 50%;
+}
+/*#endregion*/
+
+/*#region Chip Section*/
+.chip-section {
+    height: 40%;
+    left: 2%;
+    position: absolute;
+    top: 5%;
+    width: 5%;
+}
+
+.chip {
+  background-size: 151px 151px;
+  background-position: center center;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5), 0 0 3px 0 rgba(0, 0, 0, 0.4) inset;
+  display: inline-block;
+  height: 70px;
+  margin-top: 5px;
+  padding: 9px;
+  position: relative;
+  width: 70px;
+}
+
+.chip:hover {
+    animation: flip_chip 1.5s infinite;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    -webkit-transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+}
+
+.inner-chip {
+  border-radius: 50%;
+  height: 100%;
+  padding: 5px;
+  position: relative;
+  width: 100%;
+}
+
+.chip-value {
+  border-radius: 50%;
+  cursor: default;
+  font: bold 32px/36px Arial;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.3), 1px 1px 0px rgba(255, 255, 255, 0.2);
+  white-space: pre;
+  width: 100%;
+}
+
+#chip-1 {
+    background-image: linear-gradient(0deg, transparent 0, transparent 67.5px, #fff 67.5px, #fff 83.5px, transparent 83.5px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 97.4304px, #fff 97.4304px, #fff 113.4304px, transparent 113.4304px, transparent 151px), linear-gradient(120deg, #dddddd 0, #dddddd 97.4304px, #fff 97.4304px, #fff 113.4304px, #dddddd 113.4304px, #dddddd 151px);
+}
+
+#chip-1 .inner-chip {
+  background-image: linear-gradient(0deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(30deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(90deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(120deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(150deg, #C1C1C1 0, #C1C1C1 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, #C1C1C1 110.7104px, #C1C1C1 151px);
+  border: 4px solid #dddddd;
+}
+
+#chip-1 .chip-value {
+  background: #dddddd;
+  color: #C1C1C1;
+}
+
+#chip-5 {
+  background-image: linear-gradient(0deg, transparent 0, transparent 67.5px, #fff 67.5px, #fff 83.5px, transparent 83.5px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 97.4304px, #fff 97.4304px, #fff 113.4304px, transparent 113.4304px, transparent 151px), linear-gradient(120deg, #800000 0, #800000 97.4304px, #fff 97.4304px, #fff 113.4304px, #800000 113.4304px, #800000 151px);
+}
+
+#chip-5 .inner-chip {  
+  background-image: linear-gradient(0deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(30deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(90deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(120deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(150deg, #6C0000 0, #6C0000 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, #6C0000 110.7104px, #6C0000 151px);
+  border: 4px solid #800000;
+}
+
+#chip-5 .chip-value {
+  background: #800000;
+  color: #6C0000;
+}
+
+#chip-10 {
+  background-image: linear-gradient(0deg, transparent 0, transparent 67.5px, #fff 67.5px, #fff 83.5px, transparent 83.5px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 97.4304px, #fff 97.4304px, #fff 113.4304px, transparent 113.4304px, transparent 151px), linear-gradient(120deg, #000099 0, #000099 97.4304px, #fff 97.4304px, #fff 113.4304px, #000099 113.4304px, #000099 151px);
+}
+
+#chip-10 .inner-chip {
+  background-image: linear-gradient(0deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(30deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(90deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(120deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(150deg, #00016C 0, #00016C 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, #00016C 110.7104px, #00016C 151px);
+  border: 4px solid #000099;
+}
+
+#chip-10 .chip-value {
+  background: #000099;
+  color: #00016C;
+  font: bold 28px/32px Arial;
+  padding-right: 1px;
+  padding-top: 2px;
+}
+
+#chip-25 {
+  background-image: linear-gradient(0deg, transparent 0, transparent 67.5px, #fff 67.5px, #fff 83.5px, transparent 83.5px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 97.4304px, #fff 97.4304px, #fff 113.4304px, transparent 113.4304px, transparent 151px), linear-gradient(120deg, #008000 0, #008000 97.4304px, #fff 97.4304px, #fff 113.4304px, #008000 113.4304px, #008000 151px);
+}
+
+#chip-25 .inner-chip {
+  background-image: linear-gradient(0deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(30deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(90deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(120deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(150deg, #016C00 0, #016C00 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, #016C00 110.7104px, #016C00 151px);
+  border: 4px solid #008000;
+}
+
+#chip-25 .chip-value {
+  background: #008000;
+  color: #016C00;
+  font: bold 26px/30px Arial;
+  padding-right: 1px;
+  padding-top: 2px;
+}
+
+#chip-100 {
+  background-image: linear-gradient(0deg, transparent 0, transparent 67.5px, #fff 67.5px, #fff 83.5px, transparent 83.5px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 97.4304px, #fff 97.4304px, #fff 113.4304px, transparent 113.4304px, transparent 151px), linear-gradient(120deg, #222222 0, #222222 97.4304px, #fff 97.4304px, #fff 113.4304px, #222222 113.4304px, #222222 151px);
+}
+
+#chip-100 .inner-chip {
+  background-image: linear-gradient(0deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(30deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(60deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(90deg, transparent 0, transparent 69.5px, #EBEBEB 69.5px, #EBEBEB 81.5px, transparent 81.5px, transparent 151px), linear-gradient(120deg, transparent 0, transparent 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, transparent 110.7104px, transparent 151px), linear-gradient(150deg, #000000 0, #000000 98.7104px, #EBEBEB 98.7104px, #EBEBEB 110.7104px, #000000 110.7104px, #000000 151px);
+  border: 4px solid #222222;
+}
+
+#chip-100 .chip-value {
+  background: #222222;
+  color: #000000;
+  font: bold 18px/22px Arial;
+  padding-right: 2px;
+  padding-top: 5px;
+}
+/*#endregion*/
+
+/*#region Keyframes Animation*/
+@keyframes flip_chip {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    25% {
+        transform: rotateY(90deg);
+    }
+
+    50% {
+        transform: rotateY(180deg);
+    }
+
+    75% {
+        transform: rotateY(270deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+@-webkit-keyframes flip_chip {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    25% {
+        transform: rotateY(90deg);
+    }
+
+    50% {
+        transform: rotateY(180deg);
+    }
+
+    75% {
+        transform: rotateY(270deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+/*#endregion*/
